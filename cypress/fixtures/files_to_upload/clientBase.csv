@@ -1,0 +1,173 @@
+ ,Section,Preconditions,Test case,Test Steps,Expected Result,References,Pass/Fail,QA,Automation,Data
+,Client Page,,"Preconditions: 
+Test data: 07/12/2021
+User registered, email verified and User Login to client base",,,,-,,No,
+TC-cl-001,,,"Verify that end point = ""/client""","Click on ""Clients"" menu",End point url = /client,,Pass,,,
+TC-cl-002,,,"Verify that ""Client"" link exist in the top menu with correct label and redirects to the correct page Clients","Click on ""Clients"" menu","Label = Clients, redirects to the Client page",,Pass,,,
+TC-cl-003,,,Verify that page header = Client,Verify that page header = Client,Page header =Client,,Pass,,,
+TC-cl-004,,,"1. Verify that Create Client button is active and user able to open form ""Create Client""",Click Create Client button,Create Client form (modal) opens,,Pass,,,
+TC-cl-005,,,1. Verify that label Create Client button is 'Create Client',,Label = Create Client,,-,,,
+TC-cl-006,,,"Preconditions:
+Create Client form opens by clicking Create Client button
+
+Verify that Create button exists and it is active always 
+
+",,Create Client button exists and is active always,,-,,,
+TC-cl-007,,,"
+Verify that button's label is 'Create'",,Label = Create Client,,Pass,,,
+TC-cl-008,,Open modal window,"
+Verify that user can add (create) new client",1. Click Create Client button,Create Client form (modal) opens,,Pass,,,
+,,,,"2. Add full name to the Full Name field - ""Alice Cooper""",Added,,Pass,,,
+,,,,3. Add Phone number to the field Phone - 7075901867,Added,,Pass,,,
+,,,,"4. Add Email to the Email field - ""alice@cooper.com""",Added,,Pass,,,
+,,,,"5. Add Notes to the Notes field - ""Test""",Added,,Pass,,,
+,,,,6. Click button Create,The Client (Alice Cooper) added to Clients dashboard,,Pass,,,
+"TC-cl-009
+",,,"Verify that name field accept only upper and lower case latin letters, numbers, special characters allow","1. Enter Upper case latin letters to Full name field: ""ABCDEFGHIJKLMNOPQRSTUVWXYZ""","1. No error appears, all upper case latin letters are visible",,Pass,,,
+,,,,"2. Enter Lower case latin letters to Full name field: ""abcdefghijklmnopqrstuvwxyz""","2. No error appears, all lower case latin letters are visible",,Pass,,,
+,,,,"3. Enter digits: ""1234567890'","3. No error appears, all digits are visible",,Pass,,,
+,,,,"4. Enter special characters: ""!@#$%^&*()-_+={}[];:'|\'<>/?.,""","4. No error appears, all special characters are visible",,Pass,,,
+,,,,,,,Pass,,,
+TC-cl-010,,,"1. Verify that Full name field accepts (max) 200 characters
+2. Verify that Full name field accepts 50 characters
+3. Verify that Full name field accepts (min) 3 characters
+4. Verify that Full name field accepts spaces
+5. Verify that Full name field accepts copy&paste
+","1. Enter 200 chars in the Full name field: ""WWWW""","1. No error appears, all 200 chars are visible ",,Pass,,,
+,,,,"2. Enter 50 chars in the Full name field: ""frgtghjkjuhyghjhgtgfgjjikjklkjhgfdsgyhtghghghpl;'[pk""","2. No error appears, all 50 chars are visible ",,Pass,,,
+,,,,"3. Enter 3 chars in the Full name field: ""i3?""","3. No error appears, ""i3?"" is visible ",,Pass,,,
+,,,,"4. Enter spaces in the Full name field: ""Alice Cooper""",4. No error appears,,Pass,,,
+,,,,"5. Copy ""Alice Cooper"" & paste into to the Full name field","
+5. No error appears, ""Alice Cooper"" is visible",,Pass,,,
+TC-cl-011,,,"1. Verify that Full name field does not accept 201 characters
+2. Verify that Full name field does not accept 2 characters
+3. Verify that Full name field can not be empty
+4. Verify that Full name field does not accept Cirillic letters
+5. Verify if full name fiield doesn't accept spces only","1. Enter 201 chars in the Full name field: ""WWWW""","1. Error message ""No more than 200""",,Fail,,,
+,,,,"2. Enter 2 chars in the Full name field: ""2i""","2. Error message ""No less than 3""",,Fail,,,
+,,,,3. Leave Full name field empty: ,"3. Error message ""Required""",,Pass,,,
+,,,,"4. Enter 4 Cirrilic letters in the Full name field: ""ваПР""",4. Error message,,Fail,,,
+,,,,"5. Enter ""      """,5. Error message,,Fail,,,
+TC-cl-012,,,"
+Verify that Phone field accepts only numbers and  -, +, ()
+Verify that Phone field accepts 15 characters
+","1. Enter numbers to the Phone field: ""12223334455""",No error appears,,-,,,
+,,,,"2. Enter numbers and '+, - ' to the Phone field:: ""+1222-333-4455""",No error appears,,-,,,
+,,,,"3. Enter numbers and '()' to the Phone field: ""1(222)3334455""",No error appears,,-,,,
+,,,,"4. Enter 15 numbers to the Phone field: 123456789012345
+",No error appears,,-,,,
+"TC-cl-013
+",,," Verify that Phone field can't be:
+1. empty
+2. don't accept 9 digits
+3. don't accept 16 digits
+4. Verify that Phone field does not accept latin letters
+5. Verify that Phone field does not accept special characters (exclude ' - ', ' + ' and ' () ')
+6. Verify that Phone field does not accept only + or () without digits
+7. Verify that Phone field does not assept cirillic letters",1. Leave the field empty,Error appears,,-,,,
+,,,,2. Enter 9 digits: 123456789,Error appears,,-,,,
+,,,,"3. Enter 16 digits to the Phone field: ""1234567890123456""",Error appears,,-,,,
+,,,,"4. Enter letters in the Phone Field ""asdVB""",Error message,,-,,,
+,,,,"5. Enter ""!@#$%^&*-_={}[];:'|\'<>/?.,""",Error message,,-,,,
+,,,,"6. Enter only: ' - ', ' + ' and ' () '",Error message,,-,,,
+,,,,7. Enter : раарао,Error message,,-,,,
+TC-cl-014,,,"1. Verify that Email field should validate ->  (Recipient name@ symbol, Domain name, Top-level domain).
+2. Verify that Email field does accept 100 characters
+3. Verify minimal posible email
+",,,,-,,,
+,,,,,,,-,,,
+,,,,"1. Enter valid email in the Email field: 123@gmail.com
+2. Enter to the Email field: 23456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890@example.com
+3. Enter to the Email field: 1@m.c","1. No error appears, email is visible",,-,,,
+TC-cl-015,,,"1. Verify that Email field does not accept more than 100 characters
+2. Verify that Email field can not be empty
+3. Verify that Email field does not accept email with no @ symbol
+4. Verify that Email field does not accept  (no Domain name)
+5. Verify that Email field does not accept 123@gmail (no Top-level domain)
+6. Verify that Email field does not accept @gmail.com (no Recipient name)
+7. Verify that Email field does not assept cirillic letters",1. Enter 101 chars email to the Email field: 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890@example.com,,,-,,,
+,,,,2. Leave empty Email field,Error message,,-,,,
+,,,,3. Enter 123gmail.com to the Email field,Error message,,-,,,
+,,,,4. Enter 123@.com to the Email field,Error message,,-,,,
+,,,,5. Enter 123@gmail to the Email field,Error message,,-,,,
+,,,,6. Enter @gmail.com,Error message,,-,,,
+,,,,7. Enter прпол@.example.com,Error message,,-,,,
+TC-cl-016,,,"
+Verify that Notes field accepts all characters and numbers","1. Enter Upper case latin letters in the Vendor Name field: ""ABCDEFGHIJKLMNOPQRSTUVWXYZ""
+2. Enter Lower case latin letters in the Vendor Name field: ""abcdefghijklmnopqrstuvwxyz""
+3. Enter digits in the Vendor Name field: ""1234567890""
+4. Enter special characters in the Vendor Name field: ""!@#$%^&*()-_+={}[];:'|\'<>/?.,""
+5. Leave Notes empty","1. No error appears, all upper case latin letters are visible
+2. No error appears, all lower case latin letters are visible
+3. No error appears, all digits are visible
+4. No error appears, all special characters are visible
+5. No error appears",,-,,,
+TC-cl-017,,,"Preconditions: Create client form opens by clicking Create Client button
+
+1. Click on ""Clients"" menu
+2. Click Create Client button
+======================
+Verify that Notes field does not more than 201 chars",Enter 201 chars to the Notes field: 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901,Error message,,-,,,
+TC-cl-018,,,"Preconditions: Create client form opens by clicking Create Client button
+
+1. Click on ""Clients"" menu
+2. Click Create Client button
+
+Verify that user can not add (create) new client without required fields",1. Click Create Client button,Create Client form (modal) opens,,-,,,
+,,,,2. Leave empty Full name field,"Error message ""This field is required""",,-,,,
+,,,,3. Leave empty Phone field,"Error message ""This field is required""",,-,,,
+,,,,4. Leave empty Email field,"Error message ""This field is required""",,-,,,
+,,,,5. Leave empty Notes field,No error appears,,-,,,
+,,,,6. Click button Create,The Create Button is not active and The Client did not add to Clients dashboard,,-,,,
+TC-cl-019,,,"Preconditions: Create client form opens by clicking Create Client button
+
+1. Click on ""Clients"" menu
+2. Click Create Client button
+
+Verify that user can not add (create) new client without required fields",1. Click Create Client button,Create Client form (modal) opens,,-,,,
+,,,,"2. Add full name to the Full Name field - ""Alice Smith""",Added and visible,,-,,,
+,,,,3. Add Phone number to the field Phone - 7075901867,Added and visible,,-,,,
+,,,,4. Leave empty Email field,"Error message ""This field is required""",,-,,,
+,,,,5. Leave empty Notes field,No error appears,,-,,,
+,,,,6. Click button Create,The Client did not add to Clients dashboard,,-,,,
+TC-cl-020,,,"Preconditions: Create client form opens by clicking Create Client button
+
+1. Click on ""Clients"" menu
+2. Click Create Client button
+
+Verify that user can not add (create) new client without required fields",1. Click Create Client button,Create Client form (modal) opens,,-,,,
+,,,,"2. Add full name to the Full Name field - ""Alice Smith""",Added and visible,,-,,,
+,,,,3. Leave empty Phone field,"Error message ""This field is required""",,-,,,
+,,,,"4. Add Email to the Email field - ""alice@smith.com""",Added and visible,,-,,,
+,,,,5. Leave empty Notes field,No error appears,,-,,,
+,,,,6. Click button Create,The Client did not add to Clients dashboard,,-,,,
+TC-cl-021,,,"Preconditions: Create client form opens by clicking Create Client button
+
+1. Click on ""Clients"" menu
+2. Click Create Client button
+
+Verify that user can not add (create) new client without required fields",1. Click Create Client button,Create Client form (modal) opens,,-,,,
+,,,,2. Leave empty Full name field,"Error message ""This field is required""",,-,,,
+,,,,3. Add Phone number to the field Phone - 7075901867,Added and visible,,-,,,
+,,,,"4. Add Email to the Email field - ""alice@smith.com""",Added and visible,,-,,,
+,,,,5. Leave empty Notes field,No error appears,,-,,,
+,,,,6. Click button Create,The Client did not add to Clients dashboard,,-,,,
+TC-cl-022,,,"Preconditions: Create client form opens by clicking Create Client button
+
+1. Click on ""Clients"" menu
+2. Click Create Client button
+3. Add full name to the Full Name field - ""Alice Smith""
+4. Add Phone number to the field Phone - 7075901867
+5. Add Email to the Email field - ""alice@smith.com""
+6. Add Notes to the Notes field - ""Test""
+7. Click button Create
+======================
+Verify that user can not to add a customer with the same name again",1. Click Create Client button,"Error message ""A client with the same name already exists""",,-,,,
+,,,,"2. Add full name to the Full Name field - ""Alice Smith""",,,-,,,
+,,,,3. Add Phone number to the field Phone - 7075901867,,,-,,,
+,,,,"4. Add Email to the Email field - ""alice@smith.com""",,,-,,,
+,,,,"5. Add Notes to the Notes field - ""Test""",,,-,,,
+,,,,6. Click button Create,,,-,,,
+TC-cl-023,,,"Verify that an error message under the empty field is 'This field is required', If a user tries to create a client with empty required fields",Leave Name field empty and Click Create button,"Error message is 'required""",,-,,,
+,,,,Leave Phone field empty and Click Create button,"Error message is 'required""",,-,,,
+,,,,Leave Email field empty and Click Create button,No error message,,-,,,

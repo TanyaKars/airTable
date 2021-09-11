@@ -1,0 +1,21 @@
+{
+  "name": "airtable-cypress-take-home-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:headless": "cypress run --headless",
+    "bin": "./node_modules/.bin/cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.1.0",
+    "cypress-file-upload": "^5.0.8",
+    "faker": "^5.5.3"
+  },
+  "dependencies": {
+    "cypress-drag-drop": "^1.1.1",
+    "cypress-xpath": "^1.6.2"
+  }
+}
